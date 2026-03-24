@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Opt-In | New Chapter Home Relief Solutions</title>
+    <meta name="description" content="Opt in to receive SMS text message updates from New Chapter Home Relief Solutions about your property inquiry, appointments, and follow-ups.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #333; background: #f9f7f4; line-height: 1.6; }
+        .header { background: #f0ebe3; text-align: center; padding: 30px 20px; border-bottom: 1px solid #ddd; }
+        .header h1 { font-family: Georgia, serif; font-size: 28px; color: #2c3e50; margin-bottom: 5px; }
+        .header h2 { font-family: Georgia, serif; font-size: 18px; color: #7f8c8d; font-weight: normal; }
+        .nav { text-align: center; padding: 15px; background: #f0ebe3; border-bottom: 1px solid #ddd; }
+        .nav a { color: #555; text-decoration: none; margin: 0 12px; font-size: 14px; padding: 5px 10px; border: 1px solid #ccc; border-radius: 20px; }
+        .nav a:hover { color: #c0392b; border-color: #c0392b; }
+        .container { max-width: 700px; margin: 40px auto; padding: 0 20px; }
+        .page-title { font-size: 26px; color: #2c3e50; text-align: center; margin-bottom: 10px; }
+        .page-subtitle { font-size: 16px; color: #666; text-align: center; margin-bottom: 30px; }
+        .form-card { background: #fff; border-radius: 8px; padding: 35px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+        .form-card h3 { font-size: 22px; color: #2c3e50; margin-bottom: 20px; text-align: center; }
+        .form-group { flex: 1; margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 600; color: #444; margin-bottom: 5px; }
+        .form-group label .required { color: #c0392b; }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"] {
+            width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 4px;
+            font-size: 15px; transition: border-color 0.2s;
+        }
+        .form-group input:focus { outline: none; border-color: #2c3e50; }
+        .disclosure-section { background: #f8f8f8; border: 1px solid #e0e0e0; border-radius: 6px; padding: 20px; margin: 20px 0; }
+        .disclosure-section h4 { font-size: 16px; color: #2c3e50; margin-bottom: 10px; }
+        .disclosure-section p { font-size: 13px; color: #555; line-height: 1.7; }
+        .checkbox-group { margin: 15px 0; display: flex; align-items: flex-start; gap: 10px; }
+        .checkbox-group input[type="checkbox"] { margin-top: 4px; width: 18px; height: 18px; flex-shrink: 0; }
+        .checkbox-group label { font-size: 14px; color: #444; cursor: pointer; }
+        .checkbox-group a { color: #2c3e50; text-decoration: underline; }
+        .submit-btn {
+            display: block; width: 100%; padding: 14px; background: #2c3e50; color: #fff;
+            border: none; border-radius: 4px; font-size: 16px; font-weight: 600;
+            cursor: pointer; margin-top: 20px; transition: background 0.2s;
+        }
+        .submit-btn:hover { background: #1a252f; }
+        .footer { text-align: center; padding: 30px 20px; margin-top: 40px; border-top: 1px solid #ddd; background: #2c3e50; color: #ccc; font-size: 13px; }
+        .footer a { color: #ddd; text-decoration: underline; }
+        .footer .company-name { font-size: 18px; font-weight: bold; color: #fff; margin-bottom: 5px; }
+        .footer .company-sub { font-size: 14px; color: #bbb; margin-bottom: 15px; }
+        .footer p { margin: 3px 0; }
+        .success-msg { display: none; background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 15px; border-radius: 4px; text-align: center; margin-top: 15px; }
+        @media (max-width: 600px) { .container { padding: 0 15px; } .form-card { padding: 20px; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>NEW CHAPTER</h1>
+        <h2>HOME RELIEF SOLUTIONS</h2>
+    </div>
+    <div class="nav">
+        <a href="https://www.newchapterhomereliefsolutions.com">Home</a>
+        <a href="https://www.newchapterhomereliefsolutions.com/about-us">About Us</a>
+        <a href="https://www.newchapterhomereliefsolutions.com/contact-us">Contact Us</a>
+        <a href="https://www.newchapterhomereliefsolutions.com/blog">Blog</a>
+        <a href="https://www.newchapterhomereliefsolutions.com/terms-of-use">Terms of Use</a>
+        <a href="https://www.newchapterhomereliefsolutions.com/privacy-policy">Privacy Policy</a>
+    </div>
+
+    <div class="container">
+        <h1 class="page-title">Receive Text Updates About Your Property Inquiry</h1>
+        <p class="page-subtitle">Fill out this form to receive text message updates from New Chapter Home Relief Solutions regarding your property inquiry, appointment scheduling, and follow-ups.</p>
+
+        <div class="form-card">
+            <h3>SMS Opt-In</h3>
+            <form id="smsOptInForm" method="POST" action="https://n8n.ipistrategicenterprises.com/webhook/sms-optin" onsubmit="handleSubmit(event)">
+                <!-- Honeypot - hidden from humans, bots fill it -->
+                <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+
+                <div class="form-group">
+                    <label for="fullName">Full Name <span class="required">*</span></label>
+                    <input type="text" id="fullName" name="fullName" required minlength="2" maxlength="60" placeholder="John Smith">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" required maxlength="20">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" maxlength="254">
+                </div>
+
+                <div class="disclosure-section">
+                    <h4>SMS Consent Disclosure</h4>
+                    <p>By checking the box below, you agree to receive recurring SMS and MMS messages from New Chapter Home Relief Solutions related to your property inquiry, appointment scheduling, and follow-ups. Message frequency varies. Message and data rates may apply. Reply STOP to opt out at any time. Reply HELP for help. Consent is not a condition of purchase. We do not sell, rent, trade, or share your mobile phone number or SMS opt-in consent data with third parties or affiliates for marketing or promotional purposes.</p>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="smsConsent" name="smsConsent">
+                    <label for="smsConsent">I agree to receive SMS and MMS messages from New Chapter Home Relief Solutions as described above.</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="termsConsent" name="termsConsent" required>
+                    <label for="termsConsent">I have read and agree to the <a href="https://www.newchapterhomereliefsolutions.com/terms-of-use" target="_blank">Terms of Use</a> and <a href="https://www.newchapterhomereliefsolutions.com/privacy-policy" target="_blank">Privacy Policy</a>. <span class="required">*</span></label>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit</button>
+                <div class="success-msg" id="successMsg">Thank you! You have been opted in to receive SMS updates from New Chapter Home Relief Solutions.</div>
+                <div class="success-msg" id="noConsentMsg" style="display:none; background:#fff3cd; border:1px solid #ffc107; color:#856404;">Thank you for your interest! To receive SMS text updates, please check the SMS consent box above and resubmit.</div>
+                <div class="error-msg" id="errorMsg" style="display:none; background:#f8d7da; border:1px solid #f5c6cb; color:#721c24; padding:15px; border-radius:4px; text-align:center; margin-top:15px;">Something went wrong. Please try again.</div>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="company-name">NEW CHAPTER HOME RELIEF SOLUTIONS</div>
+        <div class="company-sub">A DBA of IPI Strategic Enterprises LLC</div>
+        <p>1400 Van Buren St NE, STE 200-1015</p>
+        <p>Minneapolis, MN 55413, United States</p>
+        <p style="margin-top: 10px;"><a href="mailto:contact@newchapterhomereliefsolutions.com">contact@newchapterhomereliefsolutions.com</a></p>
+        <p>763-341-9708</p>
+        <p style="margin-top: 10px;">Serving homeowners throughout Minnesota and surrounding areas.</p>
+        <p style="margin-top: 15px;">
+            <a href="https://www.newchapterhomereliefsolutions.com/terms-of-use">Terms of Use</a> |
+            <a href="https://www.newchapterhomereliefsolutions.com/privacy-policy">Privacy Policy</a>
+        </p>
+        <p style="margin-top: 10px;">&copy; 2026 IPI Strategic Enterprises LLC. All rights reserved.</p>
+    </div>
+
+    <script>
+        const WEBHOOK_URL = 'https://n8n.ipistrategicenterprises.com/webhook/sms-optin?token=5ca7734f0d674f3eb6beae89a1123c45';
+
+        async function handleSubmit(e) {
+            e.preventDefault();
+
+            // Honeypot check - bots fill hidden fields
+            if (document.querySelector('input[name="website"]').value) {
+                document.getElementById('successMsg').style.display = 'block';
+                document.getElementById('errorMsg').style.display = 'none';
+                return;
+            }
+
+            const btn = document.querySelector('.submit-btn');
+            const successEl = document.getElementById('successMsg');
+            const noConsentEl = document.getElementById('noConsentMsg');
+            const errorEl = document.getElementById('errorMsg');
+
+            // Reset messages
+            successEl.style.display = 'none';
+            noConsentEl.style.display = 'none';
+            errorEl.style.display = 'none';
+
+            // If SMS consent not checked, show friendly nudge without submitting
+            if (!document.getElementById('smsConsent').checked) {
+                noConsentEl.style.display = 'block';
+                return;
+            }
+
+            // Loading state
+            btn.disabled = true;
+            btn.textContent = 'Submitting...';
+
+            const payload = {
+                fullName: document.getElementById('fullName').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                email: document.getElementById('email').value.trim() || null,
+                smsConsent: document.getElementById('smsConsent').checked,
+                termsConsent: document.getElementById('termsConsent').checked
+            };
+
+            try {
+                const controller = new AbortController();
+                const timeout = setTimeout(() => controller.abort(), 20000);
+
+                const resp = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                    signal: controller.signal
+                });
+
+                clearTimeout(timeout);
+
+                if (resp.ok) {
+                    successEl.style.display = 'block';
+                    btn.textContent = 'Submitted';
+                } else {
+                    throw new Error('Server returned ' + resp.status);
+                }
+            } catch (err) {
+                errorEl.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Submit';
+            }
+        }
+    </script>
+</body>
+</html>
